@@ -21,6 +21,13 @@ class UnitType(str, Enum):
     LITER = "л"
     ML = "мл"
 
+class Category(Base):
+    __tablename__ = "categories"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    nsi_id = Column(String, nullable=False)
+    name = Column(String, nullable=False)
+    
 
 class Product(Base):
     __tablename__ = "products"
@@ -30,8 +37,12 @@ class Product(Base):
     name = Column(String, nullable=False)
     category = Column(String, nullable=True)
     image_url = Column(String, nullable=True)
+    grosery_store = Column(String, nullable=False)
+    category_id = Column(UUID(as_uuid=True), ForeignKey("categories.id"), nullable=True)
 
-    snapshots = relationship("PriceSnapshot", back_populates="product", cascade="all, delete")
+    snapshots = relationship("PriceSnapshot", back_populates="products", cascade="all, delete")
+    category_rel = relationship("Category", back_populates="products")
+
 
 
 class PriceSnapshot(Base):
