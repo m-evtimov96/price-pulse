@@ -35,7 +35,6 @@ class Product(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     glovo_id = Column(String, unique=True, nullable=True)
     name = Column(String, nullable=False)
-    category = Column(String, nullable=True)
     image_url = Column(String, nullable=True)
     grosery_store = Column(String, nullable=False)
     category_id = Column(UUID(as_uuid=True), ForeignKey("categories.id"), nullable=True)
