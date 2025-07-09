@@ -23,15 +23,15 @@ class UnitType(str, Enum):
 
 class Category(Base):
     __tablename__ = "categories"
-
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     nsi_id = Column(String, nullable=False)
     name = Column(String, nullable=False)
-    
+
+    products = relationship("Product", back_populates="category_rel")
+
 
 class Product(Base):
     __tablename__ = "products"
-
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     glovo_id = Column(String, unique=True, nullable=True)
     name = Column(String, nullable=False)
@@ -39,14 +39,12 @@ class Product(Base):
     grosery_store = Column(String, nullable=False)
     category_id = Column(UUID(as_uuid=True), ForeignKey("categories.id"), nullable=True)
 
-    snapshots = relationship("PriceSnapshot", back_populates="products", cascade="all, delete")
+    snapshots = relationship("PriceSnapshot", back_populates="product", cascade="all, delete")
     category_rel = relationship("Category", back_populates="products")
-
 
 
 class PriceSnapshot(Base):
     __tablename__ = "price_snapshots"
-
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     product_id = Column(UUID(as_uuid=True), ForeignKey("products.id"), nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow, index=True)
