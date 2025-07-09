@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+.uv/
+
+# Playwright cache and downloads
+playwright-report/
+playwright/.cache/
+downloads/
+*.webm
+*.mp4
+
+# macOS
+.DS_Store
+
+# Jupyter (in case used for prototyping)
+.ipynb_checkpoints/
+
+# SQLite database and related
+*.db
+*.sqlite3
+
+# Logs and output
+*.log
+logs/
+output/
+data/
+
+# VSCode
+.vscode/
+
+# Python dotenv
+.env
+.env.*
+
+# pytest
+.pytest_cache/
+.cache/
+htmlcov/
+coverage.xml
+*.cover
+
+# mypy / linting tools
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# Node (if Playwright for Python pulls any node deps in the future)
+node_modules/
+
+# Misc
+*.bak
+*.tmp
+*.swp
