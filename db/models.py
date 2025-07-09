@@ -23,6 +23,7 @@ class UnitType(str, Enum):
 
 class Category(Base):
     __tablename__ = "categories"
+
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     nsi_id = Column(String, nullable=False)
     name = Column(String, nullable=False)
@@ -32,6 +33,7 @@ class Category(Base):
 
 class Product(Base):
     __tablename__ = "products"
+
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     glovo_id = Column(String, unique=True, nullable=True)
     name = Column(String, nullable=False)
@@ -45,6 +47,7 @@ class Product(Base):
 
 class PriceSnapshot(Base):
     __tablename__ = "price_snapshots"
+
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     product_id = Column(UUID(as_uuid=True), ForeignKey("products.id"), nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow, index=True)
