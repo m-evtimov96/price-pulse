@@ -99,8 +99,8 @@ Follow these steps to set up and run the project locally:
 ### 2. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd <your-repo-directory>
+git clone git@github.com:m-evtimov96/price-pulse.git
+cd price-pulse
 ```
 
 ### 3. Install Dependencies
