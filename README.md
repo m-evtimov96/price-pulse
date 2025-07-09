@@ -115,6 +115,11 @@ Setup environment and install packages
 uv sync --locked
 ```
 
+Install Playwright browsers
+```bash
+uv run playwright install
+```
+
 ### 4. Create initial database tables
 
 Start the FastAPI app which will create the tables on startup:
@@ -126,6 +131,6 @@ You can stop the server after the tables are created.
 ### 5. Run the Scraper manually
 
 ```bash
-uv run python scraper/kaufland_glovo_scraper.py
+uv run python -m scraper.kaufland_glovo_scraper
 ```
 
