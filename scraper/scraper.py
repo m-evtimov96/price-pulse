@@ -1,7 +1,7 @@
 import asyncio
 from sqlalchemy import select
 from playwright.async_api import async_playwright
-from db.models import Product, PriceSnapshot, UnitType
+from db.models import Category,Product, PriceSnapshot, UnitType
 from db.session import AsyncSessionLocal
 from scraper.categories import CATEGORIES
 import re
@@ -38,6 +38,17 @@ def convert_unit_type(raw_unit: str):
             return unit
 
 import re
+
+def determine_category_from_name(product_name: str) -> str:
+    keywords_to_subcategories = {
+        "ориз": "Ориз",
+        "боб": "Боб",
+        "леща": "Леща",
+    }
+    product_name_lower = product_name.lower()
+    for keyword, category in keywords_to_subcategories.items():
+        if keyword in product_name_lower:
+            return category
 
 def parse_unit_price_from_name(name: str):
     """
@@ -141,24 +152,38 @@ async def scrape_category(page, url, category_name: str, limit: int = 10):
 
     return products
 
-async def save_products(products):
+async def save_products(products, grosery_store, category):
     async with AsyncSessionLocal() as session:
         for prod in products:
+            if category == "Ориз и зърнено бобови":
+                category = determine_category_from_name(prod["name"])
+                if not category:
+                    continue
+            else:
+                category = category.strip()
+
             result = await session.execute(
                 select(Product).where(Product.name == prod["name"])
             )
             db_prod = result.scalars().first()
 
+            result_cat = await session.execute(
+                select(Category).where(Category.name == category)
+            )
+            
+            db_category = result_cat.scalars().first()
+
             if not db_prod:
                 db_prod = Product(
                     name=prod["name"],
                     glovo_id=prod["glovo_id"],
-                    category=prod["category"],
+                    category_id=db_category.id,
                     image_url=prod["image_url"],
+                    grosery_store=grosery_store,
                 )
                 session.add(db_prod)
                 await session.commit()
-                await session.refresh(db_prod)
+                await session.flush()
 
             snapshot = PriceSnapshot(
                 product_id=db_prod.id,
@@ -179,13 +204,14 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
         page = await browser.new_page()
-
-        for cat in CATEGORIES:
-            products = await scrape_category(
-                page, url=cat["url"], category_name=cat["name"], limit=cat["scrape_limit"]
-            )
-            print(f"Found {len(products)} products in category {cat['name']}")
-            await save_products(products)
+        for grocery_store, categories in CATEGORIES.items():
+            for cat in categories:
+                category_name=cat["name"].strip()
+                products = await scrape_category(
+                    page, url=cat["url"], category_name=category_name, limit=cat["scrape_limit"]
+                )
+                print(f"Found {len(products)} products in category {cat['name']}")
+                await save_products(products, grocery_store, category_name)
 
         await browser.close()
 

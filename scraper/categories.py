@@ -134,7 +134,7 @@ CATEGORIES= {
         },
         {
             "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=meso-riba-i-kolbasi-sc.8177487%2Fkayma-i-mesni-zagotovki-c.8177440",
-            "name": "Кайма и месни заготовки",
+            "name": "Кайма",
             "scrape_limit": 10
         },
         {
@@ -149,7 +149,7 @@ CATEGORIES= {
         },
         {
             "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=mlechni-produkti-i-yaytsa-sc.8177445%2Fmaslo-smetana-i-margarin-c.8177433",
-            "name": "Масло и маргарин",
+            "name": "Масло",
             "scrape_limit": 10
         },
         {
@@ -231,7 +231,7 @@ CATEGORIES= {
         },
         {
             "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=meso-i-riba-sc.12810920%2Fmlyano-meso-c.12810896",
-            "name": "Кайма и месни заготовки",
+            "name": "Кайма",
             "scrape_limit": 10
         },
         {
