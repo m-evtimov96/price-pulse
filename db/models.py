@@ -28,7 +28,7 @@ class Category(Base):
     nsi_id = Column(String, nullable=False)
     name = Column(String, nullable=False)
 
-    products = relationship("Product", back_populates="category_rel")
+    products = relationship("Product", back_populates="category")
 
 
 class Product(Base):
@@ -38,11 +38,11 @@ class Product(Base):
     glovo_id = Column(String, unique=True, nullable=True)
     name = Column(String, nullable=False)
     image_url = Column(String, nullable=True)
-    grosery_store = Column(String, nullable=False)
+    grocery_store = Column(String, nullable=False)
     category_id = Column(UUID(as_uuid=True), ForeignKey("categories.id"), nullable=True)
 
     snapshots = relationship("PriceSnapshot", back_populates="product", cascade="all, delete")
-    category_rel = relationship("Category", back_populates="products")
+    category = relationship("Category", back_populates="products")
 
 
 class PriceSnapshot(Base):

@@ -152,7 +152,7 @@ async def scrape_category(page, url, category_name: str, limit: int = 10):
 
     return products
 
-async def save_products(products, grosery_store, category):
+async def save_products(products, grocery_store, category):
     async with AsyncSessionLocal() as session:
         for prod in products:
             if category == "Ориз и зърнено бобови":
@@ -179,7 +179,7 @@ async def save_products(products, grosery_store, category):
                     glovo_id=prod["glovo_id"],
                     category_id=db_category.id,
                     image_url=prod["image_url"],
-                    grosery_store=grosery_store,
+                    grocery_store=grocery_store,
                 )
                 session.add(db_prod)
                 await session.commit()
