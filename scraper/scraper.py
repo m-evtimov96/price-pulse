@@ -13,12 +13,15 @@ def extract_glovo_id(name: str) -> str | None:
     return match.group(1) if match else None
 
 async def parse_price(text: str):
-    # Parse price like "7,49 лв." or "7.49 BGN" to float 7.49
-    price_text = text.replace("лв.", "").replace("BGN", "").replace(",", ".").strip()
+    # Extract the Euro price from a string like '4.25\xa0 (2.17\xa0€)'
     try:
-        return float(price_text)
+        match = re.search(r"\(([\d.,]+)\s*€\)", text)
+        if match:
+            price_text = match.group(1).replace(",", ".")
+            return float(price_text)
     except Exception:
-        return None
+        pass
+    return None
 
 def convert_unit_type(raw_unit: str):
     unit = raw_unit.strip().lower()
