@@ -1,16 +1,17 @@
 import asyncio
+import re
 from sqlalchemy import select
 from playwright.async_api import async_playwright
-from db.models import Category,Product, PriceSnapshot, UnitType
+from db.models import Category, Product, PriceSnapshot, UnitType
 from db.session import AsyncSessionLocal
 from scraper.categories import CATEGORIES
-import re
 from datetime import datetime, timezone
 
 
 def extract_glovo_id(name: str) -> str | None:
     match = re.search(r"\b(\d{5,})\b$", name.strip())
     return match.group(1) if match else None
+
 
 async def parse_price(text: str):
     # Extract the Euro price from a string like '4.25\xa0 (2.17\xa0€)'
@@ -22,6 +23,7 @@ async def parse_price(text: str):
     except Exception:
         pass
     return None
+
 
 def convert_unit_type(raw_unit: str):
     unit = raw_unit.strip().lower()
@@ -40,18 +42,6 @@ def convert_unit_type(raw_unit: str):
         case _:
             return unit
 
-import re
-
-def determine_category_from_name(product_name: str) -> str:
-    keywords_to_subcategories = {
-        "ориз": "Ориз",
-        "боб": "Боб",
-        "леща": "Леща",
-    }
-    product_name_lower = product_name.lower()
-    for keyword, category in keywords_to_subcategories.items():
-        if keyword in product_name_lower:
-            return category
 
 def parse_unit_price_from_name(name: str):
     """
@@ -89,7 +79,6 @@ def parse_unit_price_from_name(name: str):
                 unit = convert_unit_type(groups[2])
                 return count * size, unit
     return None
-
 
 
 async def scrape_category(page, url, category_name: str, limit: int = 10):
@@ -155,16 +144,10 @@ async def scrape_category(page, url, category_name: str, limit: int = 10):
 
     return products
 
+
 async def save_products(products, grocery_store, category):
     async with AsyncSessionLocal() as session:
         for prod in products:
-            if category == "Ориз и зърнено бобови":
-                category = determine_category_from_name(prod["name"])
-                if not category:
-                    continue
-            else:
-                category = category.strip()
-
             result = await session.execute(
                 select(Product).where(Product.name == prod["name"])
             )
@@ -173,7 +156,6 @@ async def save_products(products, grocery_store, category):
             result_cat = await session.execute(
                 select(Category).where(Category.name == category)
             )
-            
             db_category = result_cat.scalars().first()
 
             if not db_prod:
@@ -213,7 +195,7 @@ async def main():
                 products = await scrape_category(
                     page, url=cat["url"], category_name=category_name, limit=cat["scrape_limit"]
                 )
-                print(f"Found {len(products)} products in category {cat['name']}")
+                print(f"Found {len(products)} products in category {category_name}")
                 await save_products(products, grocery_store, category_name)
 
         await browser.close()
