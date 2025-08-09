@@ -31,6 +31,31 @@ CATEGORIES= {
             "scrape_limit": 10
         },
         {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=meso-i-riba-sc.22267626%2Fsvinsko-meso-c.22267899",
+            "name": "Свинско месо",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=meso-i-riba-sc.22267626%2Fpileshko-meso-c.22267915",
+            "name": "Mесо от домашни птици",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=kolbasi-sc.22267645%2Fkrenvirshi-i-nadenitsi-c.22267835",
+            "name": "Малотрайни колбаси",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=kolbasi-sc.22267645%2Fshpekovi-i-lukankovi-salami-c.22267809",
+            "name": "Трайни колбаси",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=kolbasi-sc.22267645%2Flukanki-i-sudzhutsi-c.22267912",
+            "name": "Трайни колбаси",
+            "scrape_limit": 10
+        },
+        {
             "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=meso-i-riba-sc.22262226%2Fkayma-c.22262405",
             "name": "Кайма",
             "scrape_limit": 10
@@ -51,11 +76,6 @@ CATEGORIES= {
             "scrape_limit": 10
         },
         {
-            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=maslo-i-margarin-c.22262457&section=margarin-s.22262556",
-            "name": "Маргарин",
-            "scrape_limit": 10
-        },
-        {
             "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=olio-otset-i-rastitelni-masla-c.22262589&section=olio-s.22262590",
             "name": "Олио",
             "scrape_limit": 10
@@ -68,6 +88,56 @@ CATEGORIES= {
         {
             "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=variva-c.22262504&section=leshcha-s.22262591",
             "name": "Леща",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=plodove-c.22267660&section=tsitrusi-s.22267698",
+            "name": "Цитрусови",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=plodove-c.22267660&section=tropicheski-plodove-s.22267750",
+            "name": "Други пресни и замразени плодове",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=plodove-c.22267660&section=yablki-i-krushi-s.22267636",
+            "name": "Други пресни и замразени плодове",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=plodove-c.22267660&section=gorski-plodove-s.22267679",
+            "name": "Други пресни и замразени плодове",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=zelenchutsi-c.22267771&section=domati-s.22267621",
+            "name": "Домати",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=zelenchutsi-c.22267771&section=krastavitsi-i-morkovi-s.22267637",
+            "name": "Краставици",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=zelenchutsi-c.22267771&section=chushki-s.22267638",
+            "name": "Пипер",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=zelenchutsi-c.22267771&section=gbi-s.22267680",
+            "name": "Други пресни зеленчуци",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=zelenchutsi-c.22267771&section=luk-chesn-i-praz-s.22267779",
+            "name": "Други пресни зеленчуци",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/kaufland-sof?content=zelenchutsi-c.22267771&section=kartofi-s.22267777",
+            "name": "Картофи",
             "scrape_limit": 10
         },
         {
@@ -133,6 +203,31 @@ CATEGORIES= {
             "scrape_limit": 10
         },
         {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=meso-riba-i-kolbasi-sc.8177487%2Fsvinsko-meso-c.8177442",
+            "name": "Свинско месо",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=meso-riba-i-kolbasi-sc.8177487%2Fpileshko-meso-c.8177444",
+            "name": "Mесо от домашни птици",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=kolbasi-c.8177405&section=krenvirshi-i-nadenitsi-s.14303456",
+            "name": "Малотрайни колбаси",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=kolbasi-c.8177405&section=shpekovi-salami-s.14203466",
+            "name": "Трайни колбаси",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=kolbasi-c.8177405&section=lukanki-i-sudzhutsi-s.14203465",
+            "name": "Трайни колбаси",
+            "scrape_limit": 10
+        },
+        {
             "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=meso-riba-i-kolbasi-sc.8177487%2Fkayma-i-mesni-zagotovki-c.8177440",
             "name": "Кайма",
             "scrape_limit": 10
@@ -165,6 +260,16 @@ CATEGORIES= {
         {
             "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=variva-c.8177368&section=leshcha-s.8177367",
             "name": "Леща",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=plodove-i-zelenchutsi-sc.10831036%2Fsvezhi-plodove-c.10831227",
+            "name": "Други пресни и замразени плодове",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/billa-sof1?content=plodove-i-zelenchutsi-sc.10831036%2Fsvezhi-zelenchutsi-c.12289236",
+            "name": "Други пресни зеленчуци",
             "scrape_limit": 10
         },
         {
@@ -230,6 +335,16 @@ CATEGORIES= {
             "scrape_limit": 10
         },
         {
+            "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=meso-i-riba-sc.15021254%2Fmeso-razfasovki-c.15021135",
+            "name": "Месо",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=kolbasi-i-delikatesi-sc.15021299%2Fkolbasi-c.15021169",
+            "name": "Колбаси",
+            "scrape_limit": 10
+        },
+        {
             "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=meso-i-riba-sc.12810920%2Fmlyano-meso-c.12810896",
             "name": "Кайма",
             "scrape_limit": 10
@@ -252,6 +367,21 @@ CATEGORIES= {
         {
             "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=olio-i-rastitelni-masla-c.12810872&section=olio-s.12810871",
             "name": "Олио",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=plodove-c.15021244&section=tsitrusi-s.23609476",
+            "name": "Цитруси",
+            "scrape_limit": 10
+        },
+        {
+            "url": "http://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=plodove-c.15021244&section=plodove-s.15021098",
+            "name": "Други пресни и замразени плодове",
+            "scrape_limit": 10
+        },
+        {
+            "url": "https://glovoapp.com/bg/en/sofia/coca-cola-real-magic-sof?content=zelenchutsi-c.15021243&section=zelenchutsi-s.15021097",
+            "name": "Други пресни зеленчуци",
             "scrape_limit": 10
         },
         {
